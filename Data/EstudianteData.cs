@@ -84,6 +84,7 @@ namespace CRUD_ADONET.Data
             }
         }
 
+        /*Editar Estudiante*/
         public bool EditarEstudiante(EstudianteModel oEstudiante)
         {
             try
@@ -109,6 +110,7 @@ namespace CRUD_ADONET.Data
             }
         }
 
+        /*Eliimnar Estudiante*/
         public bool EliminarEstudiante(int codEstudiante)
         {
             try
