@@ -4,7 +4,6 @@ namespace CRUD_ADONET.Data
     public class Conexion
     {
         private readonly string cadenaSQL = string.Empty;
-
         public Conexion()
         {
             var builder = new ConfigurationBuilder()

@@ -14,7 +14,7 @@ namespace CRUD_ADONET.Data
             using (var conexion = new SqlConnection(cn.GetCadenaSQL()))
             {
                 conexion.Open();
-                SqlCommand cmd = new("sp_listar_estudiantes", conexion);
+                SqlCommand cmd = new("sp_LeerEstudiantes", conexion);
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
@@ -66,9 +66,10 @@ namespace CRUD_ADONET.Data
             {
                 var cn = new Conexion();
                 using var conexion = new SqlConnection(cn.GetCadenaSQL());
+                conexion.Open();
+
 
                 SqlCommand cmd = new("sp_CrearEstudiante", conexion);
-                cmd.Parameters.AddWithValue("@CodEstudiante", oEstudiante.CodEstudiante);
                 cmd.Parameters.AddWithValue("@Nombre", oEstudiante.Nombre);
                 cmd.Parameters.AddWithValue("@Edad", oEstudiante.Edad);
                 cmd.Parameters.AddWithValue("@CodGrado", oEstudiante.CodGrado);
@@ -90,10 +91,11 @@ namespace CRUD_ADONET.Data
             try
             {
                 var cn = new Conexion();
-
                 using var conexion = new SqlConnection(cn.GetCadenaSQL());
+                conexion.Open();
 
-                SqlCommand cmd = new("sp_CrearEstudiante", conexion);
+
+                SqlCommand cmd = new("sp_ActualizarEstudiante", conexion);
                 cmd.Parameters.AddWithValue("@CodEstudiante", oEstudiante.CodEstudiante);
                 cmd.Parameters.AddWithValue("@Nombre", oEstudiante.Nombre);
                 cmd.Parameters.AddWithValue("@Edad", oEstudiante.Edad);
@@ -117,7 +119,8 @@ namespace CRUD_ADONET.Data
             {
                 var cn = new Conexion();
                 using var conexion = new SqlConnection(cn.GetCadenaSQL());
-                SqlCommand cmd = new("sp_CrearEstudiante", conexion);
+                conexion.Open();
+                SqlCommand cmd = new("sp_EliminarEstudiante", conexion);
                 cmd.Parameters.AddWithValue("@CodEstudiante", codEstudiante);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
