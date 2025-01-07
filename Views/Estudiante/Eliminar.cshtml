@@ -10,19 +10,13 @@
 		Eliminar
 	</div>
 	<div class="card-body">
-
-
 		<form asp-action="Eliminar" asp-controller="Estudiante" method="post">
-
 			<input asp-for="CodEstudiante" type="hidden" class="form-control">
 			<div class="alert alert-danger" role="alert">
 				¿Desea eliminar el contacto : : @Html.DisplayTextFor(m => m.Nombre) ?
 			</div>
-
 			<button type="submit" class="btn btn-danger">Elimnar</button>
 			<a asp-action="Listar" asp-controller="Estudiante" class="btn btn-warning">Volver a la lista</a>
 		</form>
-			
-
 	</div>
 </div>
